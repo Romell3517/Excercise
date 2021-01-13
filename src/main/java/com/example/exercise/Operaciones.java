@@ -1,6 +1,7 @@
 package com.example.exercise;
 
 import com.fasterxml.jackson.annotation.JsonTypeId;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,19 +13,20 @@ public class Operaciones {
 
 
     Float num1,num2,res;
+    @ApiOperation("Makes a sum")
     @GetMapping("/suma/{num1}/{num2}")
     public String getSuma(@PathVariable("num1") Float num1,@PathVariable("num2")Float num2){
     return "La suma es: "+(num1+num2);
 
     }
 
-
+    @ApiOperation("Makes a rest")
     @GetMapping("/resta/{num1}/{num2}")
     public String getResta(@PathVariable("num1") Float num1,@PathVariable("num2")Float num2){
         return "La resta es: "+(num1-num2);
 
     }
-
+    @ApiOperation("Makes a multiplication")
     @GetMapping("/multiplicacion/{num1}/{num2}")
     public String getmultiplicacion(@PathVariable("num1") Float num1,@PathVariable("num2")Float num2){
         return "La multiplicacion es: "+(num1*num2);
